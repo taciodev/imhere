@@ -4,10 +4,14 @@ import { Button } from '../Button';
 
 import { styles } from './styles';
 
-export function Participant() {
+interface Props {
+  name: string;
+}
+
+export function Participant({ name }: Props) {
   return (
     <View style={styles.container}>
-      <Text style={styles.name}>Taciano da Hora</Text>
+      <Text style={styles.name}>{name}</Text>
       <Button>
         -
       </Button>

@@ -7,7 +7,7 @@ import { Participant } from "../../components/Participant";
 import { styles } from "./styles";
 
 export function Home() {
-  const [participant, setParticipant] = React.useState([]);
+  const [participant, setParticipant] = React.useState(["Taciano da Hora", "Beatriz Guedes", "Thiciane da Hora", "Thalisson da Hora"]);
 
   const handleParticipantAdd = () => {
     console.log("Clicou no botão!");
@@ -31,9 +31,9 @@ export function Home() {
         </Button>
       </View>
 
-      <Participant />
-      <Participant />
-      <Participant />
+      {participant.map((name) => (
+        <Participant key={name} name={name} />
+      ))}
     </View>
   );
 }

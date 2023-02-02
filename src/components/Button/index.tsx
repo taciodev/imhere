@@ -3,11 +3,11 @@ import { Text, TouchableOpacity } from 'react-native'
 
 import { styles } from './styles'
 
-interface ButtonProps {
+interface Props {
   children: React.ReactNode;
 }
 
-export function Button({ children }: ButtonProps) {
+export function Button({ children }: Props) {
   return (
     <TouchableOpacity style={styles.button}>
       <Text style={styles.buttonText}>
