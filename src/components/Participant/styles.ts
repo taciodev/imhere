@@ -14,5 +14,17 @@ export const styles = StyleSheet.create({
     color: "#FFF",
     fontSize: 16,
     marginLeft: 16,
-  }
+  },
+  button: {
+    width: 56,
+    height: 56,
+    borderRadius: 6,
+    backgroundColor: "#F00",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  buttonText: {
+    color: "#FFF",
+    fontSize: 24,
+  },
 });
