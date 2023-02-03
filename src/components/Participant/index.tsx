@@ -6,13 +6,14 @@ import { styles } from './styles';
 
 interface Props {
   name: string;
+  onRemove: () => void;
 }
 
-export function Participant({ name }: Props) {
+export function Participant({ name, onRemove }: Props) {
   return (
     <View style={styles.container}>
       <Text style={styles.name}>{name}</Text>
-      <Button>
+      <Button handleCLick={onRemove}>
         -
       </Button>
     </View>

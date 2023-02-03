@@ -5,11 +5,12 @@ import { styles } from './styles'
 
 interface Props {
   children: React.ReactNode;
+  handleCLick?: () => void;
 }
 
-export function Button({ children }: Props) {
+export function Button({ children, handleCLick }: Props) {
   return (
-    <TouchableOpacity style={styles.button}>
+    <TouchableOpacity style={styles.button} onPress={handleCLick}>
       <Text style={styles.buttonText}>
         {children}
       </Text>
