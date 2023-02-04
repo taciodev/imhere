@@ -6,16 +6,20 @@ import { Participant } from "../../components/Participant";
 import { styles } from "./styles";
 
 export function Home() {
-  const [participants, setParticipant] = React.useState(["Taciano da Hora", "Thalisson da Hora", "Thiciane da Hora", "Jorge da Hora", "Aline da Hora", "Beatriz Guedes", "Roberta Conceição", "Aymmê Mendes", "Nino Cabeção", "Junior Guedes", "Emily Correia", "Jack Sparrow"]);
+  const [participants, setParticipants] = React.useState<string[]>([]);
+  const [participantName, setParticipantName] = React.useState("");
 
   const handleParticipantAdd = () => {
-    if (participants.includes("Taciano da Hora")) {
-      Alert.alert("Participante já existe", "Já possui na lista um participante com esse mesmo nome.");
+    if (participants.includes(participantName)) {
+      return Alert.alert("Participante já existe", "Já possui na lista um participante com esse nome.");
     }
+
+    setParticipants(prevState => [...prevState, participantName]);
+    setParticipantName("");
   }
 
   const handleParticipantRemove = (name: string) => {
-    Alert.alert("Deletar", `Deseja deletar ${name} da sua lista de participantes?`, [
+    return Alert.alert("Deletar", `Deseja deletar ${name} da sua lista de participantes?`, [
       {
         text: "Sim",
         onPress: () => Alert.alert("Participante deletado !")
@@ -40,6 +44,8 @@ export function Home() {
           style={styles.input}
           placeholder="Nome do participante"
           placeholderTextColor="#6B6B6B"
+          value={participantName}
+          onChangeText={text => setParticipantName(text)}
         />
         <TouchableOpacity style={styles.button} onPress={handleParticipantAdd}>
           <Text style={styles.buttonText}>
