@@ -22,7 +22,7 @@ export function Home() {
     return Alert.alert("Deletar", `Deseja deletar ${name} da sua lista de participantes?`, [
       {
         text: "Sim",
-        onPress: () => Alert.alert("Participante deletado !")
+        onPress: () => setParticipants(prevState => prevState.filter(participant => participant !== name))
       },
       {
         text: "Não",
